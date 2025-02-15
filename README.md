@@ -5,7 +5,7 @@ I made this bot relatively long ago, just for testing, and did not check it on C
 ## Instructions
 download these 4 files, then customize the config for yourself, create a bot and insert its API key, specify your domain in the `*.r.yourdomain.com` format, and also `r.yourdomain.com`.
 after that start the bot, and try connect by domain `test.r.yourdomain.com`, if you see this
-![image](https://github.com/user-attachments/assets/b7caf60c-7c4b-4a18-9ce7-9596924f8e01) <br>
+<br>![image](https://github.com/user-attachments/assets/b7caf60c-7c4b-4a18-9ce7-9596924f8e01) <br>
 then it working, try create redirect, and use it :3
 
 ## And API
