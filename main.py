@@ -46,6 +46,11 @@ class SubdomainMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         start_time = time.time()
         host = request.headers.get('host', '')
+        path = request.url.path
+
+        # Игнорируем запросы к API
+        if path.startswith("/api") or path.startswith("/stats") or path == "/health":
+            return await call_next(request)
 
         if host == Config.DOMAIN:
             return RedirectResponse(url=Config.MAIN_REDIRECT)
@@ -76,8 +81,6 @@ class SubdomainMiddleware(BaseHTTPMiddleware):
         path = request.url.path
 
         if path and path != '/':
-            if '/IGNORE' in path:
-                path = path.split('/IGNORE')[0]
             target_url = f"{target_url.rstrip('/')}{path}"
 
         return RedirectResponse(url=target_url)
